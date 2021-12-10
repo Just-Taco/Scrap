@@ -9,11 +9,12 @@ end)
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(1)
-        local Ped = GetPlayerPed(-1)
-        if GetDistanceBetweenCoords(GetEntityCoords(Ped),-484.01455688477,-1730.6354980469,19.549257278442,true) <= 20 then
+        local Ped = PlayerPedId()
+        local pcoords = GetEntityCoords(Ped)
+        if #(pcoords - vector3(-484.01455688477,-1730.6354980469,19.549257278442)) <= 20 then
             DrawMarker(20, -484.01455688477,-1730.6354980469,19.549257278442, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.5001, 26, 213, 51, 200, 0, 0, 0, 50)
-            if GetDistanceBetweenCoords(GetEntityCoords(Ped),-484.01455688477,-1730.6354980469,19.549257278442,true) <= 2 then
-                DrawText3Ds(-484.01455688477,-1730.6354980469,19.549257278442, "~g~E~w~ - Sælg scrap")
+            if #(pcoords - vector3(-484.01455688477,-1730.6354980469,19.549257278442)) <= 2 then
+                DrawText3Ds(-484.01455688477,-1730.6354980469,19.549257278442, "~g~E~w~ - Sell scrap")
                 if IsControlJustPressed(1, 38) then
                     TriggerServerEvent('salgafscrap')
                     DeleteEntity(carseat)
@@ -22,74 +23,92 @@ Citizen.CreateThread(function()
                     DeleteEntity(wheel)
                     ClearPedTasks(Ped)
                 end
-                end
             end
+        else
+            Citizen.Wait(500)
         end
-    end)
-    Citizen.CreateThread(function()
-        while true do
-            Citizen.Wait(1)
-            local Ped = GetPlayerPed(-1)
-                if GetDistanceBetweenCoords(GetEntityCoords(Ped),-479.9250793457,-1744.8565673828,18.585384368896,true) <= 20 then
-                    DrawMarker(20, -479.9250793457,-1744.8565673828,18.585384368896, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.5001, 0, 41, 245, 200, 0, 0, 0, 50)
-                        if GetDistanceBetweenCoords(GetEntityCoords(Ped),-479.9250793457,-1744.8565673828,18.585384368896,true) <= 2 then
-                            DrawText3Ds(-479.9250793457,-1744.8565673828,18.585384368896, "~b~E~w~ -Søg i genstande")
-                            if IsControlJustPressed(1, 38) then
-                            scrap()
-                            Citizen.Wait(120000)
-                        end
-                    end
+    end
+end)
+
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(1)
+        local Ped = PlayerPedId()
+        local pcoords = GetEntityCoords(Ped)
+        if #(pcoords - vector3(-479.9250793457,-1744.8565673828,18.585384368896)) <= 20 then
+            DrawMarker(20, -479.9250793457,-1744.8565673828,18.585384368896, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.5001, 0, 41, 245, 200, 0, 0, 0, 50)
+            if #(pcoords - vector3(-479.9250793457,-1744.8565673828,18.585384368896)) <= 2 then
+                DrawText3Ds(-479.9250793457,-1744.8565673828,18.585384368896, "~b~E~w~ - Search items")
+                if IsControlJustPressed(1, 38) then
+                    scrap()
+                    Citizen.Wait(120000)
                 end
             end
-        end)
-        Citizen.CreateThread(function()
-            while true do
-                Citizen.Wait(1)
-                local Ped = GetPlayerPed(-1)
-                    if GetDistanceBetweenCoords(GetEntityCoords(Ped),-490.51565551758,-1756.0740966797,18.253499984741,true) <= 20 then
-                        DrawMarker(20, -490.51565551758,-1756.0740966797,18.253499984741, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.5001, 0, 41, 245, 200, 0, 0, 0, 50)
-                            if GetDistanceBetweenCoords(GetEntityCoords(Ped),-490.51565551758,-1756.0740966797,18.253499984741,true) <= 2 then
-                                DrawText3Ds(-490.51565551758,-1756.0740966797,18.253499984741, "~b~E~w~ -Søg i genstande")
-                                if IsControlJustPressed(1, 38) then
-                                scrap()
-                                Citizen.Wait(120000)
-                            end
-                        end
-                    end
+        else
+            Citizen.Wait(500)
+        end
+    end
+end)
+
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(1)
+        local Ped = PlayerPedId()
+        local pcoords = GetEntityCoords(Ped)
+        if #(pcoords - vector3(-490.51565551758,-1756.0740966797,18.253499984741)) <= 20 then
+            DrawMarker(20, -490.51565551758,-1756.0740966797,18.253499984741, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.5001, 0, 41, 245, 200, 0, 0, 0, 50)
+            if #(pcoords - vector3(-490.51565551758,-1756.0740966797,18.253499984741)) <= 2 then
+                DrawText3Ds(-490.51565551758,-1756.0740966797,18.253499984741, "~b~E~w~ - Search items")
+                if IsControlJustPressed(1, 38) then
+                    scrap()
+                    Citizen.Wait(120000)
                 end
-            end)
-            Citizen.CreateThread(function()
-                while true do
-                    Citizen.Wait(1)
-                    local Ped = GetPlayerPed(-1)
-                    if GetDistanceBetweenCoords(GetEntityCoords(Ped),-495.54861450195,-1750.0783691406,18.431945800781,true) <= 20 then
-                        DrawMarker(20, -495.54861450195,-1750.0783691406,18.431945800781, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.5001, 0, 41, 245, 200, 0, 0, 0, 50)
-                        if GetDistanceBetweenCoords(GetEntityCoords(Ped),-495.54861450195,-1750.0783691406,18.431945800781,true) <= 2 then
-                            DrawText3Ds(-495.54861450195,-1750.0783691406,18.431945800781, "~b~E~w~ -Søg i genstande")
-                            if IsControlJustPressed(1, 38) then
-                                scrap()
-                                Citizen.Wait(120000)
-                            end
-                            end
-                        end
-                    end
-                end)
-            Citizen.CreateThread(function()
-                while true do
-                    Citizen.Wait(1)
-                    local Ped = GetPlayerPed(-1)
-                    if GetDistanceBetweenCoords(GetEntityCoords(Ped),-486.69192504883,-1750.0402832031,18.439483642578,true) <= 20 then
-                        DrawMarker(20, -486.69192504883,-1750.0402832031,18.439483642578, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.5001, 0, 41, 245, 200, 0, 0, 0, 50)
-                        if GetDistanceBetweenCoords(GetEntityCoords(Ped),-486.69192504883,-1750.0402832031,18.439483642578,true) <= 2 then
-                            DrawText3Ds(-486.69192504883,-1750.0402832031,18.439483642578, "~b~E~w~ -Søg i genstande")
-                            if IsControlJustPressed(1, 38) then
-                                scrap()
-                                Citizen.Wait(120000)
-                            end
-                            end
-                        end
-                    end
-                end)
+            end
+        else
+            Citizen.Wait(500)
+        end
+    end
+end)
+
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(1)
+        local Ped = PlayerPedId()
+        local pcoords = GetEntityCoords(Ped)
+        if #(pcoords - vector3(-495.54861450195,-1750.0783691406,18.431945800781)) <= 20 then
+            DrawMarker(20, -495.54861450195,-1750.0783691406,18.431945800781, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.5001, 0, 41, 245, 200, 0, 0, 0, 50)
+            if #(pcoords - vector3(-495.54861450195,-1750.0783691406,18.431945800781)) <= 2 then
+                DrawText3Ds(-495.54861450195,-1750.0783691406,18.431945800781, "~b~E~w~ - Search items")
+                if IsControlJustPressed(1, 38) then
+                    scrap()
+                    Citizen.Wait(120000)
+                end
+            end
+        else
+            Citizen.Wait(500)
+        end
+    end
+end)
+
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(1)
+        local Ped = PlayerPedId()
+        local pcoords = GetEntityCoords(Ped)
+        if #(pcoords - vector3(-486.69192504883,-1750.0402832031,18.439483642578)) <= 20 then
+            DrawMarker(20, -486.69192504883,-1750.0402832031,18.439483642578, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.5001, 0, 41, 245, 200, 0, 0, 0, 50)
+            if #(pcoords - vector3(-486.69192504883,-1750.0402832031,18.439483642578)) <= 2 then
+                DrawText3Ds(-486.69192504883,-1750.0402832031,18.439483642578, "~b~E~w~ - Search items")
+                if IsControlJustPressed(1, 38) then
+                    scrap()
+                    Citizen.Wait(120000)
+                end
+            end
+        else
+            Citizen.Wait(500)
+        end
+    end
+end)
 function scrap()
     Citizen.CreateThread(function()
         local impacts = 0
@@ -187,4 +206,3 @@ local npc = {
 	local factor = (string.len(text)) / 370
 	DrawRect(_x,_y+0.0125, 0.015+ factor, 0.03, 20, 20, 20, 150)
 end
-
